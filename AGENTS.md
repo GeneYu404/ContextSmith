@@ -39,6 +39,14 @@ dotnet run --project ContextSmith
 
 每次改动后的最低验证要求：编译 0 警告、0 错误；涉及界面时启动工程做冒烟检查，窗口应正常打开且不闪退。
 
+### 构建产物统一归档到 `D:\Tool`
+
+打包好的可执行文件**一律放进 `D:\Tool`**，不要留在项目目录里散落：
+
+- `dotnet publish ContextSmith -c Release` 产出后，把 `ContextSmith.exe` 复制到 `D:\Tool\`
+- 交付给用户的文件是 `D:\Tool\ContextSmith.exe`
+- `ContextSmith\bin\Release\...` 属构建输出，**不是**交付物
+
 ## 编码约定
 
 - 零第三方 NuGet 依赖：除 .NET 自带组件外不引入新的包；界面使用 .NET 内置 Fluent 主题（`ThemeMode="System"`）。
