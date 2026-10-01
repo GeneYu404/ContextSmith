@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4A9BEE"/>
+      <stop offset="0.55" stop-color="#2C6FD1"/>
+      <stop offset="1" stop-color="#1B4CA4"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E9F1FC"/>
+    </linearGradient>
+    <filter id="sh" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#062449" flood-opacity="0.38"/>
+    </filter>
+  </defs>
+
+  <!-- 底板 -->
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#tile)"/>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="none" stroke="#FFFFFF" stroke-opacity="0.24" stroke-width="3"/>
+
+  <!-- 菜单卡 -->
+  <g filter="url(#sh)">
+    <rect x="42" y="34" width="172" height="168" rx="26" fill="url(#card)"/>
+  </g>
+
+  <!-- 三行菜单项：加粗到 16px 仍可辨识；最后一行置灰表示「已禁用」 -->
+  <g>
+    <rect x="62" y="58" width="132" height="30" rx="11" fill="#2C6FD1" fill-opacity="0.20"/>
+    <circle cx="80" cy="73" r="9" fill="#2C6FD1"/>
+    <rect x="96" y="66" width="76" height="14" rx="7" fill="#2C6FD1" fill-opacity="0.62"/>
+
+    <rect x="62" y="102" width="132" height="30" rx="11" fill="#2C6FD1" fill-opacity="0.20"/>
+    <circle cx="80" cy="117" r="9" fill="#2C6FD1"/>
+    <rect x="96" y="110" width="58" height="14" rx="7" fill="#2C6FD1" fill-opacity="0.62"/>
+
+    <rect x="62" y="146" width="132" height="30" rx="11" fill="#6B7C93" fill-opacity="0.16"/>
+    <circle cx="80" cy="161" r="9" fill="#6B7C93" fill-opacity="0.55"/>
+    <rect x="96" y="154" width="66" height="14" rx="7" fill="#6B7C93" fill-opacity="0.42"/>
+  </g>
+
+  <!-- 右键指针：加粗箭头，16px 下仍能认出「右键」 -->
+  <g transform="translate(148 132)">
+    <path d="M6 4 L6 74 L27 55 L42 92 L63 81 L48 46 L76 46 Z"
+          fill="#FFFFFF" stroke="#16428F" stroke-width="9"
+          stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>

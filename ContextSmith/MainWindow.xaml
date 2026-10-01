@@ -4,6 +4,7 @@
         xmlns:vm="clr-namespace:ContextSmith.ViewModels"
         xmlns:views="clr-namespace:ContextSmith.Views"
         Title="右键菜单管理"
+        Icon="pack://application:,,,/Resources/app.ico"
         Width="1320" Height="820" MinWidth="1020" MinHeight="620"
         WindowStartupLocation="CenterScreen"
         FontFamily="Segoe UI Variable Text, Segoe UI, Microsoft YaHei UI">

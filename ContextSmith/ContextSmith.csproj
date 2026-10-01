@@ -13,12 +13,20 @@
     <Product>右键菜单管理</Product>
     <Version>1.0.0</Version>
 
+    <!-- 应用图标：写入 exe（资源管理器 / 任务栏 / Alt-Tab），源文件为 Resources/app-icon.svg -->
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
+
     <!-- 默认 asInvoker；写入 HKLM 时按需请求提权并续跑 -->
     <ApplicationManifest>app.manifest</ApplicationManifest>
 
     <!-- ThemeMode (Fluent 主题) 在 .NET 9/10 中仍标记为实验性 API -->
     <NoWarn>$(NoWarn);WPF0001</NoWarn>
   </PropertyGroup>
+
+  <!-- 窗口图标：需作为 WPF Resource 嵌入，MainWindow 的 pack:// URI 才能解析 -->
+  <ItemGroup>
+    <Resource Include="Resources\app.ico" />
+  </ItemGroup>
 
   <!-- dotnet publish -c Release 时生成单文件 exe（需目标机已安装 .NET 10 桌面运行时） -->
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
