@@ -1,4 +1,4 @@
-# 右键菜单管家 · C# / .NET 10 / WPF
+# 右键匠 · C# / .NET 10 / WPF
 
 Windows 10 / 11 右键菜单管理工具。直接读写真实注册表，开关即时生效，每次写入前先抓取现场快照，程序重启后依然可以逐条撤销。
 
@@ -24,7 +24,7 @@ Windows 10 / 11 右键菜单管理工具。直接读写真实注册表，开关�
 程序默认以普通权限运行（`asInvoker`），普通终端即可构建与运行，无需管理员：
 
 ```powershell
-dotnet run --project ContextMenuManager
+dotnet run --project ContextSmith
 ```
 
 只有真正写入 HKLM 时才会弹一次 UAC，确认后窗口会带队列重启并自动把这批操作做完。
@@ -32,8 +32,8 @@ dotnet run --project ContextMenuManager
 发布为单文件 exe：
 
 ```powershell
-dotnet publish ContextMenuManager -c Release
-# 输出：ContextMenuManager\bin\Release\net10.0-windows\win-x64\publish\ContextMenuManager.exe
+dotnet publish ContextSmith -c Release
+# 输出：ContextSmith\bin\Release\net10.0-windows\win-x64\publish\ContextSmith.exe
 ```
 
 如需免装运行时，把 csproj 中的 `SelfContained` 改为 `true`（体积约 70MB）。
@@ -41,7 +41,7 @@ dotnet publish ContextMenuManager -c Release
 ## 目录结构
 
 ```
-ContextMenuManager/
+ContextSmith/
 ├── Models/
 │   ├── MenuEntry       场景、菜单项模型（含 View / IconRaw / RunAsAdmin）
 │   └── RegOp           .reg 预览用的最小写入描述 + KeySnapshot 现场模型
@@ -80,8 +80,8 @@ ContextMenuManager/
 | 生效 | 每次写入后调用 `SHChangeNotify(SHCNE_ASSOCCHANGED)`；外壳扩展与部分优化项需重启资源管理器，状态栏会提示 |
 | 新增 / 编辑命令 | 新增写 HKCU；编辑就地改写原键；"以管理员运行"通过 `powershell Start-Process -Verb RunAs` 幂等包装 / 还原，并同步 `HasLUAShield` 盾牌 |
 
-日志与快照：`%LocalAppData%\ContextMenuManager\history.json`
-备份位置：`%LocalAppData%\ContextMenuManager\Backups`
+日志与快照：`%LocalAppData%\ContextSmith\history.json`
+备份位置：`%LocalAppData%\ContextSmith\Backups`
 
 ## 已知限制
 

@@ -2,7 +2,7 @@
 
 ## 项目概述
 
-右键菜单管家是 Windows 10 / 11 的右键菜单管理工具。程序直接读写注册表，开关即时生效；写入前抓取现场快照，程序重启后仍可逐条撤销。
+右键匠是 Windows 10 / 11 的右键菜单管理工具。程序直接读写注册表，开关即时生效；写入前抓取现场快照，程序重启后仍可逐条撤销。
 
 实现基于 WPF（.NET 10）。仓库曾做过一次完整的 Avalonia 12 迁移实验（双工程并存、移除 WPF、单文件打包三个提交），因单文件体积膨胀（29 MB 对 11 MB）决定还原为 WPF 版。实验代码完整保留在 git 历史中（`c9554a0` ～ `823b99c`），用 `git checkout 823b99c` 可查看当时全貌。
 
@@ -11,8 +11,8 @@
 ## 仓库结构
 
 ```
-ContextMenuManager/
-├── ContextMenuManager/       主工程（解决方案内唯一项目）
+ContextSmith/
+├── ContextSmith/       主工程（解决方案内唯一项目）
 │   ├── Models/               场景、菜单项模型
 │   ├── Services/             扫描、写入、快照、备份、提权、系统优化、图标提取
 │   ├── ViewModels/           MVVM 基础设施与主视图模型（LogStore 持久化日志）
@@ -20,7 +20,7 @@ ContextMenuManager/
 │   ├── Converters/           值转换器
 │   ├── MainWindow.xaml App.xaml
 │   └── app.manifest          asInvoker 清单
-├── ContextMenuManager.slnx   解决方案
+├── ContextSmith.slnx   解决方案
 ├── README.md
 └── AGENTS.md
 ```
@@ -29,13 +29,13 @@ ContextMenuManager/
 
 ```powershell
 # 构建
-dotnet build ContextMenuManager.slnx
+dotnet build ContextSmith.slnx
 
 # 运行
-dotnet run --project ContextMenuManager
+dotnet run --project ContextSmith
 ```
 
-发布：`dotnet publish ContextMenuManager -c Release` 输出单文件 `ContextMenuManager.exe`。
+发布：`dotnet publish ContextSmith -c Release` 输出单文件 `ContextSmith.exe`。
 
 每次改动后的最低验证要求：编译 0 警告、0 错误；涉及界面时启动工程做冒烟检查，窗口应正常打开且不闪退。
 
