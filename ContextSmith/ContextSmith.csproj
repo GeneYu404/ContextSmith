@@ -10,7 +10,7 @@
 
     <AssemblyName>ContextSmith</AssemblyName>
     <RootNamespace>ContextSmith</RootNamespace>
-    <Product>右键匠</Product>
+    <Product>右键菜单管理</Product>
     <Version>1.0.0</Version>
 
     <!-- 默认 asInvoker；写入 HKLM 时按需请求提权并续跑 -->

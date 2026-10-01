@@ -21,7 +21,7 @@ public partial class App : Application
     {
         MessageBox.Show(
             $"发生未处理的错误：\n\n{e.Exception.Message}\n\n程序会继续运行，建议刷新当前列表。",
-            "右键匠",
+            "右键菜单管理",
             MessageBoxButton.OK,
             MessageBoxImage.Error);
         e.Handled = true;
